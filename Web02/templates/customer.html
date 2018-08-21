@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Customer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <a href="{{ url_for("index") }}">Về trang chủ</a>
+    <h3>Này thì khách</h3>
+    {% for customer in all_customer %}
+        <div>
+            {% if customer.gender == 1 %}
+            <img src="../static/image/male-profile.jpg" alt="">
+            {% else %}
+            <img src="../static/image/female-profile.jpg" alt="">
+            {% endif %}
+            <p>Tên: {{ customer.name }} </p>
+            <p>Nghề nghiệp: {{ customer.job }} </p>
+            <p>Công ty: {{ customer.company }}</p>
+            <hr>
+        </div>
+    {% endfor %}
+</body>
+</html>
